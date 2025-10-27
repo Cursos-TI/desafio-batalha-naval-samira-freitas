@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+
+int main() {
+    //  tabuleiro 10x10 preenchido com zeros (água)
+    int tabuleiro[10][10] = {0};
+
+    // --- Habilidade 1: CRUZ (valor 2) ---
+    int padrao_cruz[5][5] = {
+        {0,0,1,0,0},
+        {1,1,1,1,1},
+        {0,0,1,0,0},
+        {0,0,1,0,0},
+        {0,0,0,0,0}
+    };
+    int baseX_cruz = 1, baseY_cruz = 1;
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+            if (padrao_cruz[i][j] == 1)
+                tabuleiro[baseX_cruz + i][baseY_cruz + j] = 2;
+
+    // --- Habilidade 2: CONE (valor 3) ---
+    int padrao_cone[5][5] = {
+        {0,0,1,0,0},
+        {0,1,1,1,0},
+        {1,1,1,1,1},
+        {0,0,0,0,0},
+        {0,0,0,0,0}
+    };
+    int baseX_cone = 4, baseY_cone = 0;
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+            if (padrao_cone[i][j] == 1)
+                tabuleiro[baseX_cone + i][baseY_cone + j] = 3;
+
+    // --- Habilidade 3: OCTAEDRO (valor 4) ---
+    int padrao_octaedro[5][5] = {
+        {0,0,1,0,0},
+        {0,1,1,1,0},
+        {1,1,1,1,1},
+        {0,1,1,1,0},
+        {0,0,1,0,0}
+    };
+    int baseX_octaedro = 2, baseY_octaedro = 5;
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+            if (padrao_octaedro[i][j] == 1)
+                tabuleiro[baseX_octaedro + i][baseY_octaedro + j] = 4;
+
+
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++)
+            printf("%d ", tabuleiro[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
